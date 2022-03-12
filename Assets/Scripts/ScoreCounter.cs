@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 public class ScoreCounter : MonoBehaviour
@@ -7,8 +8,8 @@ public class ScoreCounter : MonoBehaviour
     public EventChannel resetTimer;
     public EventChannel timeSlowed; // pigeon enters hoop
     public EventChannel gunUnequipped; // pigeon hits ground
+    private List<Text> leaderboardValues = new List<Text>();
     public Text scoreCounter;
-    public Text leaderboardVal;
     public int score = 0;
     private int _highscore = 0;
     private bool _isCountingScore;
@@ -16,12 +17,15 @@ public class ScoreCounter : MonoBehaviour
     void Start()
     {
         scoreCounter.text = ZERO;
-        leaderboardVal.text = ZERO;
         pointScored.OnChange += AddPoint;
         timeSlowed.OnChange += StartCountingScore; // when pigeon enters ring
         stopTimer.OnChange += SaveScore;
         resetTimer.OnChange += ResetScore;
         gunUnequipped.OnChange += StopCountingScore;
+        
+        List<GameObject> tempLeaderboard = new List<GameObject>(GameObject.FindGameObjectsWithTag("Highscore"));
+        tempLeaderboard.ForEach(t => leaderboardValues.Add(t.GetComponent<Text>()));
+        leaderboardValues.ForEach(t => t.text = ZERO);
     }
 
     private void OnDestroy()
@@ -65,7 +69,7 @@ public class ScoreCounter : MonoBehaviour
         if (score > _highscore)
         {
             _highscore = score;
-            leaderboardVal.text = _highscore + "";
+            leaderboardValues.ForEach(t => t.text = _highscore + "");
         }
     }
     

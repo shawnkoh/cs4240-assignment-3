@@ -1,5 +1,6 @@
-#Matrix skeet shooting
+# Matrix skeet shooting
 Group 8 Assignment 3  
+**Authors:**
 Bu Wen Jin  
 Siti Nurul Syasya Bte Azman  
 Hong Yi En, Ian  
@@ -23,18 +24,30 @@ Koh Zheng Qiang Shawn
 - Visual Studio Editor 2.0.14
 
 ## How to Play
+### Safety
+- Stand in an open space where you can fully stretch your arms out around you in ever direction.  
+- You will be physically rotating to look around, so be wary of any wires connected to the headset.
+
+### Gameplay
 Create skeet discs, throw them through the hoops, and shoot them before they hit the ground! 
 Make the hoops appear by starting the timer. Time slows down when a disc goes through the hoop, and resumes when it is destroyed.
 You have 30s to score as many points as possible. Try to beat your high score. The crowd is watching you!
-The right hand can only grab the gun, and will grab it regardless of how far it is.
 The left hand can only grab discs.
+The right hand can only grab the gun, and will grab it regardless of how far it is.
 
 ### Controls
 ![Controls](Controls.png)
-**LH**
-trigger: Teleport, bottom round button: Spawn discs, side button: Grab discs  
+**LH**  
+- trigger: Teleport
+- bottom round button: Spawn discs
+- side button: Grab discs  
+
 **RH**  
-trigger: Shoot, bottom round button: Start and Reset timer, side button: Grab gun 
+- trigger: Shoot
+- bottom round button: Start and Reset timer
+- side button: Grab gun 
+
+Note: you have to physically rotate your body to rotate in VR.
 
 ## How to Grade
 - Grabbing: Can grab discs and the gun
@@ -42,8 +55,8 @@ trigger: Shoot, bottom round button: Start and Reset timer, side button: Grab gu
 - Teleporting: Use LH to teleport around the map
 - Targets: The discs are the main targets. Hoops are secondary targets. Discs explode and hoops change colour for feedback.
 - UI: Mini panel follows player's left hand, and highscore panel is prominently displayed on the game field.
-- Audio: Crowds chanting, gun reloading, disc exploding, reverb zones, this game is full of audio!
-- Creativity: Imagine playing basketball and skeet shooting in the matrix. That's the game. We also used scriptable objects as events to reduce coupling between scripts.
+- Audio: Crowds chanting, gun reloading, disc exploding, reverb zones, and more  
+- Creativity: Imagine playing basketball and skeet shooting in the matrix. That's what playing this game is like. We also used scriptable objects as events to reduce coupling between scripts.
 
 ## Assets Used
 - Oculus Integration by Oculus
@@ -55,7 +68,7 @@ trigger: Shoot, bottom round button: Start and Reset timer, side button: Grab gu
 
 
 ## Sounds Used
-_The following royalty-free sounds were downloaded from their respective websites and belong tot their respective owners:_
+_The following royalty-free sounds were downloaded from their respective websites and belong to their respective owners:_
 ### Mixkit
 - mixkit-chanting-sports-crowd-433.wav
 - mixkit-jetpack-swoosh-1483.wav
