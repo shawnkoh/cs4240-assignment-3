@@ -11,6 +11,7 @@ TagManager:
   - Hoop
   - Gun
   - Magazine
+  - Highscore
   layers:
   - Default
   - TransparentFX

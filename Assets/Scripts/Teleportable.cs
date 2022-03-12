@@ -10,6 +10,7 @@ enum TeleportState
 public class Teleportable : MonoBehaviour
 {
     public GameObject Indicator;
+    private LineRenderer _lineRenderer;
 
     public string InputIdentifier;
     public PlayerTeleportedSO PlayerTeleported;
@@ -21,7 +22,10 @@ public class Teleportable : MonoBehaviour
     private RaycastHit _raycastHit;
     void Start()
     {
-        _layerMask = 1 << 7;
+        _layerMask = 1 << 7; // what does this do?
+        _lineRenderer = GetComponent<LineRenderer>();
+        _lineRenderer.enabled = false;
+        _lineRenderer.useWorldSpace = true;
     }
 
     void Update()
@@ -48,12 +52,10 @@ public class Teleportable : MonoBehaviour
         if (Physics.Raycast((transform.position), transform.forward, out _raycastHit, Mathf.Infinity, _layerMask))
         {
             _state = TeleportState.AimingValid;
-            Debug.DrawRay(transform.position, transform.forward * _raycastHit.distance, Color.blue);
         }
         else
         {
             _state = TeleportState.AimingInvalid;
-            Debug.DrawRay(transform.position, transform.forward * 1000, Color.white);
         }
         
         UpdateIndicator();
@@ -73,9 +75,13 @@ public class Teleportable : MonoBehaviour
             case TeleportState.AimingValid:
                 Indicator.transform.position = _raycastHit.point;
                 Indicator.SetActive(true);
+                _lineRenderer.enabled = true;
+                _lineRenderer.SetPosition(0, transform.position);
+                _lineRenderer.SetPosition(1, _raycastHit.point);
                 return;
             default:
                 Indicator.SetActive(false);
+                _lineRenderer.enabled = false;
                 return;
         }
     }
